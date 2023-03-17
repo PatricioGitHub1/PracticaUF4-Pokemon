@@ -12,6 +12,7 @@ public class Main {
 		//Poner el nombre de la persona y crear el array con sus 6 pokemon.
 		System.out.print("Com et dius?: ");
 		String trainer = sc.next();
+
 		sc.nextLine();
 		
 		//CREACION POKEMONS DE LA PERSONA
@@ -20,7 +21,7 @@ public class Main {
 		for (int i = 0; i != 6; i++) {
 			player_pokemons[i] = sc.next();
 		}
-		
+				
 		System.out.println(Arrays.toString(player_pokemons));
 		
 		//LISTA DE POKEMONS DE BOOT
@@ -32,6 +33,7 @@ public class Main {
 					+ "\n\n1) Lluitar\n2) Jugar altra vegada\n3) Acabar Partida\n\nQue vols fer?");
 			System.out.print("Option:");
 			
+			sc.nextLine();
 			if (!sc.hasNextInt()){
 				System.out.println("\n\n"
 						+ "=======================================================\n"
