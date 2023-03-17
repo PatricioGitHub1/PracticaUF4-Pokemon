@@ -37,6 +37,36 @@ public class Agua extends Pokemon implements Atacable, Defensable{
 		}
 	}
 	public String getDefensa(Pokemon enemic, int atacEnemic) {
-		if ()
+		int atac;
+		String text = "";
+		if ((Math.random() * 100) < getPrecisio()) {
+			if (enemic.getClass() == Agua.class) {
+				atac = atacEnemic - getDefensa();
+				setVida(getVida() - atac);
+				text = "La vida s'ha reduït en " + atac + " Punts la salut del pokemon " + getNom();
+			}
+			if (enemic.getClass() == Fuego.class) {
+				atac = 3 * atacEnemic - getDefensa() * 2;
+				setVida(getVida() - atac);
+				text = "L'atac es poc efectiu. La vida s'ha reduït en " + atac + " Punts la salut del"
+						+ " pokemon " + getNom();
+			}
+			if (enemic.getClass() == Electrico.class) {
+				atac = 3 * atacEnemic - getDefensa() * 2;
+				setVida(getVida() - atac);
+				text =  "Atac crític. La vida s'ha reduït en " + atac + " Punts la salut del pokemon "
+				+ getNom();
+			}
+		}
+		else {
+			return getNom() + " ha fallat l'atac";
+		}
+		if (enemic.getVida() <= 0) {
+			return text + "\nEl pokemon " + enemic.getNom() + " s'ha debilitat";
+		}
+		if (enemic.getEnergia() == 0) {
+			return text + "\nEl pokemon enemic no té energia";
+		}
+		return text;
 	}
 }
